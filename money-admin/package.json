@@ -13,6 +13,7 @@
     "compression-webpack-plugin": "^7.1.2",
     "core-js": "^3.6.5",
     "echarts": "^4.9.0",
+    "js-md5": "^0.7.3",
     "less": "^4.1.1",
     "less-loader": "^7.3.0",
     "sass": "^1.32.8",

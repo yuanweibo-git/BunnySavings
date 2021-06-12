@@ -1,12 +1,12 @@
 import request from '@/utils/request'
 
-export function login() {
+export function login(data) {
   return request({
     url: '/login',
     method: 'post',
     params: {
-      userName: 'admin',
-      passWord: '123456'
+      userName: data.username,
+      passWord: data.password
     }
   })
 }

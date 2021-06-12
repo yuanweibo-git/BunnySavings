@@ -8,15 +8,13 @@ const constantRoutes = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import('@/views/Login'),
-    meta: { title: '登录', icon: '404' }
+    component: () => import('@/views/Login')
   },
 
   {
     path: '/404',
     name: '404',
-    component: () => import('@/views/Dashboard'),
-    meta: { title: '404', icon: '404' }
+    component: () => import('@/views/404')
   }
 ]
 
@@ -50,7 +48,8 @@ export const asyncRouter = [
 
 export const routes = [
   ...asyncRouter,
-  ...constantRoutes
+  ...constantRoutes,
+  { path: '/dashboard' }
 ]
 
 const router = new VueRouter({
