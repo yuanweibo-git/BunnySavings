@@ -5,9 +5,9 @@
       <template v-for="item in routes">
         <template v-if="!item.hidden && item.children">
           <!-- 只有一个子菜单: 一级菜单 -->
-          <a-menu-item v-if="item.children.length === 1" :key="item.path === '/' ? `${item.path}${item.children[0].path}`: `${item.path}/${item.children[0].path}`">
+          <a-menu-item v-if="item.children.length === 1" :key="`${item.path}${item.children[0].path}`">
             <a-icon :type="item.children[0] && item.children[0].meta && item.children[0].meta.icon" />
-            <router-link style="display: inline-block" :to="{path: item.path === '/' ? `${item.path}${item.children[0].path}` : `${item.path}/${item.children[0].path}` }">
+            <router-link style="display: inline-block" :to="`${item.path}${item.children[0].path}`">
               {{ item.children[0].meta.title }}
             </router-link>
           </a-menu-item>

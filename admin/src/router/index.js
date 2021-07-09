@@ -15,6 +15,12 @@ const constantRoutes = [
     path: '/404',
     name: '404',
     component: () => import('@/views/404')
+  },
+  {
+    path: '*',
+    name: '404',
+    redirect: '/404',
+    component: () => import('@/views/404')
   }
 ]
 
