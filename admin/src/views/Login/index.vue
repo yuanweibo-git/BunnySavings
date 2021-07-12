@@ -37,6 +37,7 @@
           </a-form-item>
           <a-form-item>
             <a-button type="primary" html-type="submit" class="login-form-button">
+              <a-icon v-if="isLoading" type="loading" />
               登录
             </a-button>
           </a-form-item>
@@ -54,7 +55,8 @@ import { mapActions } from 'vuex'
 export default {
   data() {
     return {
-      form: this.$form.createForm(this, { name: 'normal_login' })
+      form: this.$form.createForm(this, { name: 'normal_login' }),
+      isLoading: false
     }
   },
 
@@ -64,14 +66,19 @@ export default {
     handleSubmit(e) {
       e.preventDefault()
       this.form.validateFields(async(err, values) => {
-        console.log(values)
         if (!err) {
+          this.isLoading = true
           const password = this.$md5(values.password)
 
-          const res = await this['user/login']({ username: values.userName, password })
+          try {
+            const res = await this['user/login']({ username: values.userName, password })
+            this.isLoading = false
 
-          if (res.data.code === 100) {
-            this.$router.push('/')
+            if (res.data.code === 100) {
+              this.$router.push('/')
+            }
+          } catch (err) {
+            this.isLoading = false
           }
         }
       })

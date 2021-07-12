@@ -2,10 +2,12 @@ const users = require('./user/index')
 const Token = require('./token/index')
 
 const login = async(req, res) => {
-  const { userName, passWord } = req.query
+  const { username, password } = req.body
+  // console.log(req.query)
+  // console.log({ userName, passWord })
 
   // 查询是否有该用户，密码是否正确
-  const message = await users.login(userName, passWord)
+  const message = await users.login(username, password)
 
   res.send(message)
 }

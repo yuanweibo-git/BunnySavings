@@ -18,8 +18,12 @@ export default {
   actions: {
     async  login(context, data) {
       const res = await login(data)
-      message.success('登录成功')
-      context.commit('setToken', res)
+      if (res.data.code === 100) {
+        message.success('登录成功')
+        context.commit('setToken', res)
+      } else {
+        message.error(res.data.msg)
+      }
       return res
     }
   }

@@ -5,7 +5,8 @@
         <template v-if="!item.hidden && item.children">
           <router-link :key="index" style="display: inline-block" :to="`${item.path}${item.children[0].path}`">
             <div class="nav_item">
-              {{ item.children[0].meta.title }}
+              <div>icon</div>
+              <div>{{ item.children[0].meta.title }}</div>
             </div>
           </router-link>
         </template>
@@ -62,14 +63,22 @@ export default {
       text-align: center;
       line-height: 60px;
       transition: background-color 0.2s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
 
       &:hover {
         background-color: #0a0;
+      }
+
+      div {
+        line-height: 1;
       }
     }
   }
 
   .operating {
+    color: #000;
     flex: 1;
   }
 }

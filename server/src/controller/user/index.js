@@ -20,7 +20,7 @@ async function login(userName, passWord) {
     }
   }
 
-  if (userInfo.length !== 0) {
+  if (isUser && userInfo.length !== 0) {
     return {
       code: 100,
       msg: '登录成功',
