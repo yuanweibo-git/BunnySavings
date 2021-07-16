@@ -2,14 +2,21 @@
   <div class="navbar_main">
     <div class="navigation">
       <template v-for="(item, index) in routes">
-        <template v-if="!item.hidden && item.children">
-          <router-link :key="index" style="display: inline-block" :to="`${item.path}${item.children[0].path}`">
-            <div class="nav_item">
-              <div>icon</div>
-              <div>{{ item.children[0].meta.title }}</div>
-            </div>
-          </router-link>
-        </template>
+        <router-link
+          v-if="!item.hidden && item.children"
+          :key="index"
+          style="display: inline-block"
+          :to="`${item.path}${item.children[0].path}`"
+        >
+          <div
+            class="nav_item"
+            :class="item.activa ? 'activa': ''"
+            @click="onChangeActiva(index)"
+          >
+            <my-icon :type="'icon-' + item.children[0].meta.icon" />
+            <div>{{ item.children[0].meta.title }}</div>
+          </div>
+        </router-link>
       </template>
     </div>
 
@@ -21,10 +28,19 @@
 </template>
 
 <script>
-import { routes } from '@/router'
+import { Icon } from 'ant-design-vue'
+
+const MyIcon = Icon.createFromIconfontCN({
+  scriptUrl: '//at.alicdn.com/t/font_2668529_pn1b476eb2.js'
+})
+
+import { asyncRouter as routes } from '@/router'
 
 export default {
-  name: 'Navbar',
+  components: {
+    MyIcon
+  },
+
   data() {
     return {
       routes
@@ -32,7 +48,17 @@ export default {
   },
 
   mounted() {
-    console.log(this.routes)
+    this.routes.forEach((item) => {
+      item.path === '/' ? item.activa = true : item.activa = false
+    })
+  },
+
+  methods: {
+    onChangeActiva(i) {
+      this.routes.forEach((item, index) => {
+        item.activa = (index === i)
+      })
+    }
   }
 }
 </script>
@@ -53,12 +79,25 @@ export default {
     flex: 1;
     display: flex;
 
+    a {
+      .activa {
+        border: 1px solid #3fb280;
+        color: #3fb280;
+
+        ::v-deep.anticon svg {
+          width: 2em !important;
+          height: 2em !important;
+          fill: #3fb580
+        }
+      }
+    }
+
     .nav_item {
-      color: #000;
+      color: #2f2f2f;
       width: 80px;
       height: 80px;
       margin: 0 20px;
-      border: 2px solid #000;
+      border: 1px solid #8b8b8b;
       border-radius: 10px;
       text-align: center;
       line-height: 60px;
@@ -67,8 +106,14 @@ export default {
       flex-direction: column;
       justify-content: space-evenly;
 
+      ::v-deep.anticon svg {
+        width: 2em !important;
+        height: 2em !important;
+        fill: #8b8b8b;
+      }
+
       &:hover {
-        background-color: #0a0;
+        background-color: #eaeaea;
       }
 
       div {

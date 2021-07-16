@@ -12,6 +12,11 @@ service.interceptors.request.use(config => {
 })
 
 service.interceptors.response.use(response => { return response }, error => {
+  const status = error.response.status
+  if (status === 500) {
+    message.error(error.response.statusText)
+  }
+
   if (error.message.includes('timeout')) {
     message.warn('网络错误，请求超时')
     return Promise.reject(error)

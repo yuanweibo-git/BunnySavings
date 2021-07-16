@@ -26,6 +26,7 @@ const constantRoutes = [
 
 export const asyncRouter = [
   {
+    activa: true,
     path: '/',
     name: 'layout',
     component: Layout,
@@ -34,11 +35,12 @@ export const asyncRouter = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/Dashboard'),
-      meta: { title: '首页', icon: 'dashboard' }
+      meta: { title: '首页', icon: 'home' }
     }]
   },
 
   {
+    activa: false,
     path: '/test',
     component: Layout,
     // hidden: true,
@@ -46,7 +48,7 @@ export const asyncRouter = [
       path: '',
       name: 'Test',
       component: () => import('@/views/test'),
-      meta: { title: '测试页', icon: '404' }
+      meta: { title: '测试页', icon: 'test' }
     }]
   }
 
@@ -54,8 +56,7 @@ export const asyncRouter = [
 
 export const routes = [
   ...asyncRouter,
-  ...constantRoutes,
-  { path: '/dashboard' }
+  ...constantRoutes
 ]
 
 const router = new VueRouter({
