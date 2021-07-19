@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
 
-const TokenKey = 'vue_admin_deposit-token'
+const TokenKey = 'BunnySavings'
 const timeStamp = 'vue_timestamp'
 
 export function getToken() {

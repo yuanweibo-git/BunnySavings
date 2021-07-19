@@ -6,7 +6,7 @@ const pool = mysql.createPool({
   timezone: 'HK',
   user: 'root',
   password: '123456',
-  database: 'money'
+  database: 'BunnySavings'
 })
 
 /**

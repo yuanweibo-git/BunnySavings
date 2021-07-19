@@ -37,7 +37,7 @@ export default {
 
 .app-main {
   /*50 = navbar  */
-  min-height: calc(100vh - 50px);
+  min-height: calc(100vh - 100px);
   width: 100vw;
   position: relative;
   overflow: hidden;
@@ -47,11 +47,17 @@ export default {
 }
 </style>
 
-<style lang="scss">
+<style lang="less">
 // fix css styles bug in open el-dialog
-.el-popup-parent--hidden {
-  .fixed-header {
-    padding-right: 15px;
-  }
+.app-main {
+  padding: 20px;
+
+}
+.ant-card {
+  border-radius: 10px;
+  border: 1px solid #EBEEF5;
+  background-color: #FFF;
+  color: #303133;
+  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 10%);
 }
 </style>

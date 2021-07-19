@@ -17,6 +17,21 @@ const port = process.env.port || process.env.npm_config_port || 9528 // dev port
 
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
 module.exports = {
+  css: {
+    loaderOptions: {
+      less: {
+        lessOptions: {
+          // If you are using less-loader@5 please spread the lessOptions to options directly
+          modifyVars: {
+            'primary-color': '#3fb280',
+            'link-color': '#3fb280',
+            'border-radius-base': '2px'
+          },
+          javascriptEnabled: true
+        }
+      }
+    }
+  },
   /**
    * You will need to set publicPath if you plan to deploy your site under a sub path,
    * for example GitHub Pages. If you plan to deploy your site to https://foo.github.io/bar/,

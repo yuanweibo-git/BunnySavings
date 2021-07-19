@@ -20,9 +20,7 @@
       </template>
     </div>
 
-    <div class="operating">
-      123
-    </div>
+    <div class="operating" />
 
   </div>
 </template>
@@ -31,7 +29,7 @@
 import { Icon } from 'ant-design-vue'
 
 const MyIcon = Icon.createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_2668529_pn1b476eb2.js'
+  scriptUrl: '//at.alicdn.com/t/font_2668529_s7ot4gnyfr8.js'
 })
 
 import { asyncRouter as routes } from '@/router'
@@ -69,8 +67,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 120px;
-  padding: 0 80px;
+  height: 100px;
   border-bottom: 1px solid #ccc;
   background-color: #fff;
   color: #fff;
@@ -80,6 +77,8 @@ export default {
     display: flex;
 
     a {
+      margin: 0 20px;
+
       .activa {
         border: 1px solid #3fb280;
         color: #3fb280;
@@ -93,11 +92,10 @@ export default {
     }
 
     .nav_item {
-      color: #2f2f2f;
+      color: #797979;
       width: 80px;
-      height: 80px;
-      margin: 0 20px;
-      border: 1px solid #8b8b8b;
+      height: 70px;
+      border: 1px solid #797979;
       border-radius: 10px;
       text-align: center;
       line-height: 60px;
@@ -107,13 +105,13 @@ export default {
       justify-content: space-evenly;
 
       ::v-deep.anticon svg {
-        width: 2em !important;
-        height: 2em !important;
-        fill: #8b8b8b;
+        width: 2em ;
+        height: 2em ;
+        fill: #797979;
       }
 
       &:hover {
-        background-color: #eaeaea;
+        background-color: #efefef;
       }
 
       div {

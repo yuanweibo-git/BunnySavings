@@ -43,15 +43,50 @@ export const asyncRouter = [
     activa: false,
     path: '/test',
     component: Layout,
-    // hidden: true,
+    hidden: true,
     children: [{
       path: '',
       name: 'Test',
       component: () => import('@/views/test'),
       meta: { title: '测试页', icon: 'test' }
     }]
-  }
+  },
 
+  {
+    activa: false,
+    path: '/expense',
+    component: Layout,
+    children: [{
+      path: '',
+      name: 'expense',
+      component: () => import('@/views/expense'),
+      meta: { title: '支出记账', icon: 'expense' }
+    }]
+  },
+
+  {
+    activa: false,
+    path: '/revenue',
+    component: Layout,
+    children: [{
+      path: '',
+      name: 'revenue',
+      component: () => import('@/views/revenue'),
+      meta: { title: '收入记账', icon: 'revenue' }
+    }]
+  },
+
+  {
+    activa: false,
+    path: '/search',
+    component: Layout,
+    children: [{
+      path: '',
+      name: 'search',
+      component: () => import('@/views/search'),
+      meta: { title: '快速查询', icon: 'search' }
+    }]
+  }
 ]
 
 export const routes = [
