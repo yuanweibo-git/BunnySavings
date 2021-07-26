@@ -26,19 +26,9 @@
 </template>
 
 <script>
-import { Icon } from 'ant-design-vue'
-
-const MyIcon = Icon.createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_2668529_s7ot4gnyfr8.js'
-})
-
 import { asyncRouter as routes } from '@/router'
 
 export default {
-  components: {
-    MyIcon
-  },
-
   data() {
     return {
       routes
@@ -68,7 +58,7 @@ export default {
   align-items: center;
   width: 100%;
   height: 100px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #EBEEF5;
   background-color: #fff;
   color: #fff;
 

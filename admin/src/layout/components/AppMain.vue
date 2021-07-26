@@ -51,6 +51,7 @@ export default {
 // fix css styles bug in open el-dialog
 .app-main {
   padding: 20px;
+  min-width: 1300px;
 
 }
 .ant-card {
